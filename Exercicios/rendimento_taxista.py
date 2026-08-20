@@ -14,7 +14,7 @@ PRECO_COMBUSTIVEL = 6.15
 # PROCESSAMENTO
 
 kms_corridos = odometro_fim - odometro_inicio
-custo_dia = kms_corridos * PRECO_COMBUSTIVEL
+custo_dia = combustivel_gasto * PRECO_COMBUSTIVEL
 lucro_liquido = total_recebido - custo_dia
 
 # SAÍDA
