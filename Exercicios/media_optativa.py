@@ -10,7 +10,7 @@ if nota_optativa != -1:
 
     if nota_um > nota_dois and nota_optativa > nota_dois:
         nota_dois = nota_optativa        
-    elif nota_um == nota_dois:
+    elif nota_um == nota_dois and nota_optativa > nota_um:
         nota_um = nota_optativa
         # nota_dois = nota_optativa     # Equivalente.
     elif nota_um < nota_dois and nota_optativa > nota_um:
