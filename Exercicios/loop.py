@@ -1,4 +1,2 @@
-nome = 2468
-
-for cada_elemento in range(20):
-    print(cada_elemento)
+for i in range(10000000):
+    print(i)
