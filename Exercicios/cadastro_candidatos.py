@@ -5,3 +5,29 @@
 # ● Se for menor de 18, o programa deve informar que ele não pode participar e pular
 # a coleta dos demais dados (telefone, email etc) para esse candidato.
 # ● Se for maior de 18, o programa prossegue com o input() para os demais dados.
+
+ano_presente = 2026
+
+for num_candidato in range(1, 13):
+    print(f'Candidato {num_candidato}')
+
+    try:
+        ano_nascimento = int(input('Ano de Nascimento: '))
+    except ValueError:
+        print('Por favor, insira apenas números.')
+
+    idade = ano_presente - ano_nascimento
+
+    if idade >= 18:
+        try:
+            telefone = int(input('Telefone: '))
+        except ValueError:
+            print('Por favor, insira apenas números.')
+
+        email = str(input('Correio Eletrônico: '))
+
+    else:
+        print('Sua idade é insuficiente!')
+
+    print('')
+    print('')
