@@ -20,7 +20,7 @@ num_bocais = comodo_m2 / 3 # ("a cada 3m² existe um bocal para uma lâmpada")
 
 # SAÍDA
 
-if num_bocais <= lampadas_necessarias:
+if lampadas_necessarias <= num_bocais:
     print(f'São necessárias {lampadas_necessarias} lâmpadas para iluminar esse cômodo.')
 else:
     print(f'Não é possível iluminar o cômodo com esses parâmetros.')
