@@ -15,8 +15,6 @@
 login_correto = 'douglas'
 senha_correta = 'abobora'
 
-bloqueio = 'off'
-
 # ENTRADA
 
 for tentativa in range(1, 4):
@@ -28,6 +26,8 @@ for tentativa in range(1, 4):
     print()
 
     if login == login_correto and senha == senha_correta:
+        bloqueio = 'off'
+
         print('Bem-vindo, Douglas!')
         break
     else:
