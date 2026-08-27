@@ -1,45 +1,24 @@
 # ENTRADA
 
-primeiro_valor = int(input('Primeiro Valor: '))
-segundo_valor = int(input('Segundo Valor: '))
-terceiro_valor = int(input('Terceiro Valor: '))
+num1 = float(input('Entrada 1: '))
+num2 = float(input('Entrada 2: '))
+num3 = float(input('Entrada 3: '))
 
 # PROCESSAMENTO
 
-# A voz na minha cabeça me diz que esse código está redundante... que dá pra ser mais eficiente, mais enxuto!
+# Atualização: Estive muito insatisfeito com a lógica da análise combinatória. Há muitos cenários
+# possíveis. Em razão disso, o código tornou-se extenso. Então, decidi buscar sugestões da inteligência
+# artificial para otimizar esse processo. O seguinte código é resultado disso:
 
-if primeiro_valor > segundo_valor and primeiro_valor > terceiro_valor:
-    valor_maior = primeiro_valor
+if num1 > num2:
+    num1, num2 = num2, num1
 
-    if segundo_valor > terceiro_valor:
-        valor_meio = segundo_valor
-        valor_menor = terceiro_valor
-    else:
-        valor_meio = terceiro_valor
-        valor_menor = segundo_valor
+if num2 > num3:
+    num2, num3 = num3, num2
 
-elif primeiro_valor > segundo_valor and primeiro_valor < terceiro_valor:
-    valor_maior = terceiro_valor
-    valor_meio = primeiro_valor
-    valor_menor = segundo_valor
-
-elif primeiro_valor < segundo_valor and primeiro_valor > terceiro_valor:
-    valor_maior = segundo_valor
-    valor_meio = primeiro_valor
-    valor_menor = terceiro_valor
-
-elif primeiro_valor < segundo_valor and primeiro_valor < terceiro_valor:
-    valor_menor = primeiro_valor
-
-    if segundo_valor > terceiro_valor:
-        valor_maior = segundo_valor
-        valor_meio = terceiro_valor
-    else:
-        valor_maior = terceiro_valor
-        valor_meio = segundo_valor
+if num1 > num2:
+    num1, num2 = num2, num1
 
 # SAÍDA
 
-print(f'Menor: {valor_menor}')
-print(f'Meio: {valor_meio}')
-print(f'Maior: {valor_maior}')
+print(f'R: {num1}, {num2} e {num3}')
