@@ -6,9 +6,9 @@ num3 = float(input('Entrada 3: '))
 
 # PROCESSAMENTO
 
-# Atualização: Estive muito insatisfeito com a lógica da análise combinatória. Há muitos cenários
-# possíveis. Em razão disso, o código tornou-se extenso. Então, decidi buscar sugestões da inteligência
-# artificial para otimizar esse processo. O seguinte código é resultado disso:
+# Atualização: O código tornou-se demasiadamente extenso ao tentar atender cada cenário possível. Em razão da minha insatisfação,
+# busquei por sugestões da inteligência artificial para otimizar esse processo. Para fins comparativos, o versionamento foi
+# realizado.
 
 if num1 > num2:
     num1, num2 = num2, num1
