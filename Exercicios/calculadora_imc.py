@@ -18,8 +18,8 @@ def obter_classificacao(imc):
     elif imc >= 25:
         classificacao = 'Sobrepeso'
     elif imc >= 18.5:
-        classificacao = 'Normal'
+        classificacao = 'Peso normal'
     else:
-        classificacao = 'Abaixo do Peso'
+        classificacao = 'Abaixo do peso'
 
     return classificacao
