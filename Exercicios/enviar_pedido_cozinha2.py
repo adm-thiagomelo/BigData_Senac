@@ -31,7 +31,9 @@ def enviar_pedido_cozinha():
     # EXTRAIR OS PEDIDOS DE CADA MESA
 
     lista_de_pedidos = [{'Item': 1, 'Quantidade': 2, 'Observações': 'N/A', 'Mesa': 1}
-                        ]
+                        {'Item': 1, 'Quantidade': 1, 'Observações': 'N/A', 'Mesa': 3}
+                        {'Item': 2, 'Quantidade': 1, 'Observações': 'N/A', 'Mesa': 4}] # Esse pedido não deverá constar, visto que não há uma quarta mesa ocupada.
 
     for cada_mesa_ocupada in lista_de_mesas_ocupadas:
-
+        # listar_pedidos_da_mesa(cada_mesa_ocupada)
+        
