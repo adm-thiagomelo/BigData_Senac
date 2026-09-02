@@ -1,58 +1,56 @@
-def enviar_pedido_cozinha(pedido: dict, fila_cozinha: list[dict]) -> list[dict]:
-    '''
-    Envia os itens de um pedido confirmado para a fila da cozinha.
+from listar_pedidos_da_mesa import listar_pedidos_da_mesa
 
-    Args:
-        pedido: Dicionário contendo os dados do pedido.
-        fila_cozinha: Lista que representa a fila de preparação.
-
-    Returns:
-        A fila da cozinha atualizada.
-
-    Raises:
-        TypeError: Se os parâmetros tiverem tipos inadequados.
-        ValueError: Se o pedido não possuir itens ou número de pedido inválido.
-    '''
+def enviar_pedido_cozinha(numero_mesa, numero_pedido, pedidos, fila_cozinha):
+    """
+    Envia um pedido para a fila de preparação da cozinha.
+    """
 
     # Validações
-    if not isinstance(pedido, dict):
-        raise TypeError(
-            "Parâmetro inválido: o pedido deve ser fornecido em um dicionário."
-        )
+    if not isinstance(numero_mesa, int):
+        raise TypeError("O número da mesa deve ser um número inteiro.")
+
+    if numero_mesa <= 0:
+        raise ValueError("O número da mesa deve ser maior que zero.")
+
+    if not isinstance(numero_pedido, int):
+        raise TypeError("O número do pedido deve ser um número inteiro.")
+
+    if numero_pedido <= 0:
+        raise ValueError("O número do pedido deve ser maior que zero.")
+
+    if not isinstance(pedidos, list):
+        raise TypeError("Os pedidos devem ser fornecidos em uma lista.")
 
     if not isinstance(fila_cozinha, list):
-        raise TypeError(
-            "Parâmetro inválido: a fila da cozinha deve ser fornecida em uma lista."
-        )
+        raise TypeError("A fila da cozinha deve ser uma lista.")
 
-    if "numero_pedido" not in pedido:
-        raise ValueError(
-            "Pedido inválido: o número do pedido não foi informado."
-        )
+    # Pega os pedidos da mesa sem imprimir no terminal
+    pedidos_da_mesa = listar_pedidos_da_mesa(
+        numero_mesa,
+        pedidos,
+        exibir=False
+    )
 
-    if "numero_mesa" not in pedido:
-        raise ValueError(
-            "Pedido inválido: o número da mesa não foi informado."
-        )
+    # Procura o pedido informado
+    pedido_encontrado = None
 
-    if "itens" not in pedido or not pedido["itens"]:
-        raise ValueError(
-            "Pedido inválido: não existem itens para enviar à cozinha."
-        )
+    for pedido in pedidos_da_mesa:
+        if pedido["numero_pedido"] == numero_pedido:
+            pedido_encontrado = pedido
+            break
 
-    # Verifica se o pedido já foi enviado para evitar duplicidade
-    for item in fila_cozinha:
-        if item["numero_pedido"] == pedido["numero_pedido"]:
-            return fila_cozinha
+    if pedido_encontrado is None:
+        raise ValueError("Pedido não encontrado.")
 
-    # Monta o registro que será enviado para a cozinha
+    # Monta o pedido que será enviado para a cozinha
     pedido_cozinha = {
-        "numero_pedido": pedido["numero_pedido"],
-        "numero_mesa": pedido["numero_mesa"],
+        "numero_pedido": pedido_encontrado["numero_pedido"],
+        "numero_mesa": pedido_encontrado["numero_mesa"],
         "itens": []
     }
 
-    for item in pedido["itens"]:
+    # Coloca os itens do pedido na fila
+    for item in pedido_encontrado["itens"]:
 
         item_cozinha = {
             "codigo_prato": item["codigo_prato"],
@@ -63,7 +61,7 @@ def enviar_pedido_cozinha(pedido: dict, fila_cozinha: list[dict]) -> list[dict]:
 
         pedido_cozinha["itens"].append(item_cozinha)
 
-    # Adiciona o pedido ao final da fila
+    # Adiciona o pedido à fila
     fila_cozinha.append(pedido_cozinha)
 
     return fila_cozinha
