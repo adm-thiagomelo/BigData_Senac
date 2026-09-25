@@ -1,5 +1,3 @@
-# WIP WIP WIP WIP WIP WIP WIP WIP WIP WIP WIP WIP WIP WIP WIP WIP WIP WIP WIP WIP WIP WIP
-
 import pandas as pd
 import matplotlib.pyplot as plt
 
