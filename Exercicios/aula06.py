@@ -102,7 +102,7 @@ df_produtos = pd.DataFrame(obter_dados_do_banco(query_produtos), columns=['id_pr
 
 # Identificação de Outliers Superiores e Inferiores
 outliers_superiores = df_produtos[df_produtos['preco'] > limite_superior]
-outliers_inferiores = df_produtos[df_produtos['preco'] < abs(limite_inferior)]
+outliers_inferiores = df_produtos[df_produtos['preco'] < limite_inferior]
 
 # Exibir Outliers Superiores Ordenados (Decrescente)
 print(f"\n--- Outliers Superiores ({len(outliers_superiores)} produtos) ---")
